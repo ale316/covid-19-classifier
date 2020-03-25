@@ -17,3 +17,10 @@ Create a new `.env` file and edit it with the correct **AWS Keys**:
 ```
 cp .env.example .env
 ```
+
+## Download the cough audio files
+
+From the root of the project run:
+```
+python scripts/fetch_data.py
+```
