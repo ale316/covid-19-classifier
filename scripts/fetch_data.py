@@ -38,7 +38,7 @@ def download_coughs():
                 os.makedirs(tmp_dir)
             else:
                 filepath = f'{tmp_dir}/{key.split("/")[-1]}'
-                if not os.path.isfile(filepath):
+                if os.path.isfile(filepath):
                     continue
                 print(f"Downloading file to {filepath}...")
                 client.download_file(BUCKET, key, filepath)
