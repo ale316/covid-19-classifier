@@ -130,3 +130,6 @@ dmypy.json
 
 # data folders
 data
+
+# OSX
+.DS_Store
