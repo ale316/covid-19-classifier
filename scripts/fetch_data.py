@@ -85,8 +85,8 @@ def cut_coughs() -> None:
     # below 1% of the audio volume. For example you can get a lot more cuts by
     # decreasing the duration to 0.05 or increasing the acceptable volume to 3%.
     run(f'for coughfile in {COUGHS_DIR}/*.wav; do '
-        f'sox ${{coughfile}} {COUGHS_CUT_DIR}/$(basename $coughfile)_cut.wav '
-        f'silence 1 0.1 0.3% 1 0.1 1% : newfile : restart; done',
+        f'sox ${{coughfile}} -b 16 {COUGHS_CUT_DIR}/$(basename $coughfile)_cut.wav '
+        f'rate 22k channels 1 norm -0.1 silence 1 0.1 0.3% 1 0.1 1% : newfile : restart; done',
         shell=True, check=True)
     print(f'done.')
 

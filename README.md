@@ -24,3 +24,9 @@ From the root of the project run:
 ```
 python scripts/fetch_data.py
 ```
+
+## Slice the .wav files into small cough clips
+
+```
+for coughfile in data/coughs/*.wav; do sox ${coughfile} ${coughfile%.wav}_cut.wav silence 1 0.1 0.3% 1 0.5 1% : newfile : restart; done
+```
